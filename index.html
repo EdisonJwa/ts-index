@@ -148,7 +148,7 @@
                             </div>
                             <div class="collapse-content grid grid-cols-4">
                                 <div class="col-span-3">
-                                    <p>服务器地址：${item.default ? '6666 或' + item.address : item.address}</p>
+                                    <p>服务器地址：${item.default ? '6666 或 ' + item.address : item.address}</p>
                                     <p>${item.description}</p>
                                 </div>
                                 <button class="btn btn-sm col-span-1 ${item.status ? 'btn-success' : 'btn-disabled'} " onclick="${item.status ? 'window.open(\'ts3server://' + item.address + '\')' : '#'}" >连接</button>
