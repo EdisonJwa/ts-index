@@ -144,7 +144,7 @@
         const html = data.map(
           item => `<div tabindex="0" class="collapse rounded-box ${item.default ? 'collapse-open" style="margin-top: 5px; margin-bottom: 15px;"' : 'collapse-arrow"'}>
                             <div class="collapse-title text-xl font-medium " style="display: flex; align-items: center" id="${item.key}">
-                                ${item.name} <span style="margin-left: 10px" class="w-10 badge badge-sm ${item.status ? 'badge-success">在线' : 'badge-error">离线'}</span>
+                                ${item.name} <span style="margin-left: 10px" class="w-12 badge badge-sm ${item.status ? 'badge-success">在线' : 'badge-error">离线'}</span>
                             </div>
                             <div class="collapse-content grid grid-cols-4">
                                 <div class="col-span-3">
