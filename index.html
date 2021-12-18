@@ -1,164 +1,133 @@
 <!DOCTYPE html>
 <html lang="zh-CN" data-theme="dark">
-
 <head>
-  <meta charset="UTF-8">
-  <title>TeamSpeak 服务器</title>
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
-  <meta name="format-detection" content="telephone=no">
-  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-  <meta http-equiv="cache-control" content="no-cache" />
-  <meta http-equiv="pragma" content="no-cache" />
-  <meta http-equiv="expires" content="-1" />
-  <meta http-equiv="refresh" content="3; url=ts3server://ts3.gs">
-  <link
-    href="https://cdn.jsdelivr.net/combine/npm/daisyui@1.16.6/dist/full.min.css,npm/tailwindcss@2.2/dist/tailwind.min.css"
-    rel="stylesheet" type="text/css" />
-  <script src="https://cdn.jsdelivr.net/combine/npm/@fortawesome/fontawesome-free@5.15.4/js/all.min.js" async></script>
-  <style>
-    @media (max-width: 639px) {
-      .xs\:col-span-4 {
-        grid-column: span 4/span 4;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>TeamSpeak 服务器</title>
+    <link rel="preload" href="https://cdn.jsdelivr.net/combine/npm/daisyui@1.16.6/dist/full.min.css,npm/tailwindcss@2.2/dist/tailwind.min.css" as="style">
+    <link rel="preload" href="https://cdn.jsdelivr.net/combine/npm/@fortawesome/fontawesome-free@5.15.4/js/all.min.js" as="script">
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/EdisonJwa/Blog@master/js/teamspeak.js" as="script">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/cfga@1.0.3" as="script">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="cache-control" content="no-cache"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta http-equiv="expires" content="-1"/>
+    <link href="https://cdn.jsdelivr.net/combine/npm/daisyui@1.16.6/dist/full.min.css,npm/tailwindcss@2.2/dist/tailwind.min.css"
+          rel="stylesheet" type="text/css"/>
+    <script src="https://cdn.jsdelivr.net/combine/npm/@fortawesome/fontawesome-free@5.15.4/js/all.min.js"
+            async></script>
+    <style>
+        @media (max-width:639px){.xs\:col-span-4{grid-column:span 4/span 4}}
+    </style>
 </head>
-
 <body>
-  <div class="hero h-screen bg-base-200">
+<div class="hero h-screen bg-base-200">
     <div id="server-list" class="modal">
-      <div class="modal-box">
-        <h2 class="my-4 text-3xl font-bold card-title">
-          连接至服务器
-        </h2>
-        <div id="server-data" class=" text-base-content">
-          <button aria-label="loading button" class="btn btn-ghost btn-lg btn-circle loading"></button>
+        <div class="modal-box">
+            <h2 class="my-4 text-3xl font-bold card-title">
+                连接至服务器
+            </h2>
+            <div id="server-intro" class="text-base-content" style="margin-bottom: 15px">
+                <p>
+                    服务器已配置负载均衡，会根据您的 IP 及负载情况自行分流。正常情况下，使用默认接入点，并忽略下方的接入点列表即可。<br/>
+                    如您所在地区为中国大陆, 且遇到解析失败的情况, 请将本地 DNS 服务器地址设置为 "119.29.29.29", "114.114.114.114"
+                </p>
+            </div>
+            <div id="server-data" class="text-base-content">
+                <div class="text-center">
+                    <button aria-label="loading button" class="btn btn-ghost btn-lg btn-circle loading"></button>
+                </div>
+            </div>
+            <div class="modal-action">
+                <a href="#" class="btn">关闭</a>
+            </div>
         </div>
-        <div class="modal-action">
-          <a href="#" class="btn">关闭</a>
-        </div>
-      </div>
-
     </div>
     <div class="flex">
-      <div class="p-4 lg:p-10 bg-base-200">
-        <div class="grid grid-cols-4 gap-6 rounded-box ">
-          <div class="card col-span-4 row-span-2 shadow-lg bg-base-100 justify-center">
-            <div class="card-body">
-              <h2 class="my-4 text-3xl font-bold card-title">
-                <i class="fab fa-teamspeak"></i> TeamSpeak 语音服务器
-              </h2>
-              <p>您应该在 TeamSpeak 客户端中输入这个地址，而非在网页浏览器中。<br />
-                如果您在计算机中已经安装好 TeamSpeak 客户端，您将自动连接至服务器。<br />
-              </p>
-              <div class="justify-end space-x-3 card-actions">
-                <a class="btn btn-info" href="#server-list">连接至服务器</a>
-                <button class="btn" onclick="window.open('https://ts.wevg.org', '_blank')">了解更多</button>
+        <div class="p-4 lg:p-10 bg-base-200">
+            <div class="grid grid-cols-4 gap-6 rounded-box ">
+                <div class="card col-span-4 row-span-2 shadow-lg bg-base-100 justify-center">
+                    <div class="card-body">
+                        <h2 class="my-4 text-3xl font-bold card-title">
+                            <i class="fab fa-teamspeak"></i> TeamSpeak 语音服务器
+                        </h2>
+                        <p>您应该在 TeamSpeak 客户端中输入这个地址，而非在网页浏览器中。<br/>
+                            如果您在计算机中已经安装好 TeamSpeak 客户端，您将自动连接至服务器。<br/>
+                        </p>
+                        <div class="justify-end space-x-3 card-actions">
+                            <a class="btn btn-info" href="#server-list">连接至服务器</a>
+                            <button class="btn" onclick="window.open('https://ts.wevg.org', '_blank')">了解更多</button>
 
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="flex items-center p-4 shadow-xl rounded-box bg-accent text-accent-content lg:col-span-1 md:col-span-2 sm:col-span-2 xs:col-span-4"
-            onclick="window.open('https://ts.wevg.org/download/', '_blank')" style="cursor: pointer">
-            <div class="flex-1 px-2">
-              <h2 class="text-xl font-extrabold">客户端下载</h2>
-            </div>
-            <div class="flex-0">
-              <div tabindex="0">
-                <div class="flex space-x-1">
-                  <button class="btn btn-ghost btn-square" aria-label="button component">
-                    <i class="fas fa-arrow-down text-lg"></i>
-                  </button>
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-          </div>
-          <div
-            class="flex items-center p-4 shadow-xl rounded-box bg-error text-accent-content lg:col-span-1 md:col-span-2 sm:col-span-2 xs:col-span-4"
-            onclick="window.open('https://ts.wevg.org/translation-zh-CN/', '_blank')" style="cursor: pointer">
-            <div class="flex-1 px-2">
-              <h2 class="text-xl font-extrabold">中文语言包</h2>
-            </div>
-            <div class="flex-0">
-              <div tabindex="0">
-                <div class="flex space-x-1">
-                  <button class="btn btn-ghost btn-square" aria-label="button component">
-                    <i class="fas fa-plus text-lg"></i>
-                  </button>
+                <div class="flex items-center p-4 shadow-xl rounded-box bg-accent text-accent-content lg:col-span-1 md:col-span-2 sm:col-span-2 xs:col-span-4"
+                     onclick="window.open('https://ts.wevg.org/download/', '_blank')" style="cursor: pointer">
+                    <div class="flex-1 px-2"><h2 class="text-xl font-extrabold">客户端下载</h2>
+                    </div>
+                    <div class="flex-0">
+                        <div tabindex="0">
+                            <div class="flex space-x-1">
+                                <button class="btn btn-ghost btn-square" aria-label="button component">
+                                    <i class="fas fa-arrow-down text-lg"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-          </div>
-          <div
-            class="flex items-center p-4 shadow-xl rounded-box text-accent-content lg:col-span-1 md:col-span-2 sm:col-span-2 xs:col-span-4"
-            style="background: #f59e0b; cursor: pointer" onclick="window.open('https://pay.wevg.org/', '_blank')">
-            <div class="flex-1 px-2">
-              <h2 class="text-xl font-extrabold">捐赠</h2>
-            </div>
-            <div class="flex-0">
-              <div tabindex="0">
-                <div class="flex space-x-1">
-                  <button class="btn btn-ghost btn-square" aria-label="button component">
-                    <i class="fas fa-donate text-lg"></i>
-                  </button>
+                <div class="flex items-center p-4 shadow-xl rounded-box bg-error text-accent-content lg:col-span-1 md:col-span-2 sm:col-span-2 xs:col-span-4"
+                     onclick="window.open('https://ts.wevg.org/translation-zh-CN/', '_blank')" style="cursor: pointer">
+                    <div class="flex-1 px-2"><h2 class="text-xl font-extrabold">中文语言包</h2>
+                    </div>
+                    <div class="flex-0">
+                        <div tabindex="0">
+                            <div class="flex space-x-1">
+                                <button class="btn btn-ghost btn-square" aria-label="button component">
+                                    <i class="fas fa-plus text-lg"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-          </div>
-          <div
-            class="flex items-center p-4 shadow-xl rounded-box bg-primary text-accent-content lg:col-span-1 md:col-span-2 sm:col-span-2 xs:col-span-4"
-            onclick="window.open('https://ts.wevg.org/contact-us', '_blank')" style="cursor: pointer">
-            <div class="flex-1 px-2">
-              <h2 class="text-xl font-extrabold">联系我们</h2>
-            </div>
-            <div class="flex-0">
-              <div tabindex="0">
-                <div class="flex space-x-1">
-                  <button class="btn btn-ghost btn-square" aria-label="button component">
-                    <i class="fas fa-envelope-open text-lg"></i>
-                  </button>
+                <div class="flex items-center p-4 shadow-xl rounded-box text-accent-content lg:col-span-1 md:col-span-2 sm:col-span-2 xs:col-span-4"
+                     style="background: #f59e0b; cursor: pointer"
+                     onclick="window.open('https://pay.wevg.org/', '_blank')">
+                    <div class="flex-1 px-2"><h2 class="text-xl font-extrabold">捐赠</h2>
+                    </div>
+                    <div class="flex-0">
+                        <div tabindex="0">
+                            <div class="flex space-x-1">
+                                <button class="btn btn-ghost btn-square" aria-label="button component">
+                                    <i class="fas fa-donate text-lg"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
+                <div class="flex items-center p-4 shadow-xl rounded-box bg-primary text-accent-content lg:col-span-1 md:col-span-2 sm:col-span-2 xs:col-span-4"
+                     onclick="window.open('https://ts.wevg.org/contact-us', '_blank')" style="cursor: pointer">
+                    <div class="flex-1 px-2"><h2 class="text-xl font-extrabold">联系我们</h2>
+                    </div>
+                    <div class="flex-0">
+                        <div tabindex="0">
+                            <div class="flex space-x-1">
+                                <button class="btn btn-ghost btn-square" aria-label="button component">
+                                    <i class="fas fa-envelope-open text-lg"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
+            <footer class="p-4 footer text-base-content footer-center">
+                <div id="footer-copyright"></div>
+            </footer>
         </div>
-        <footer class="p-4 footer text-base-content footer-center">
-          <div id="footer-copyright">
-          </div>
-        </footer>
-      </div>
     </div>
-  </div>
-  <script async>
-    document.getElementById("footer-copyright").innerHTML =
-      `<p>Copyright © 2015 - ${(new Date).getFullYear()} - All right reserved by <a class="footer-copyright-a link inline\" href=\"https://uv.uy\" target=\"_blank\" rel=\"nofollow noopener noreferrer\">Edison Jwa</a></p>`;
-    window.ga_tid = "UA-106121780-10";
-    window.ga_api = "https://ga.cdn.uv.uy/jquery.js";
-    const api = "https://api.uv.uy/teamspeak/status.json";
-    fetch(api)
-      .then(response => response.json())
-      .then(data => {
-        const html = data.map(
-          item => `<div tabindex="0" class="collapse rounded-box ${item.default ? 'collapse-open" style="margin-top: 5px; margin-bottom: 15px;"' : 'collapse-arrow"'}>
-                            <div class="collapse-title text-xl font-medium " style="display: flex; align-items: center" id="${item.key}">
-                                ${item.name} <span style="margin-left: 10px" class="w-12 badge badge-sm ${item.status ? 'badge-success">在线' : 'badge-error">离线'}</span>
-                            </div>
-                            <div class="collapse-content grid grid-cols-4">
-                                <div class="col-span-3">
-                                    <p>服务器地址：${item.default ? '6666 或 ' + item.address : item.address}</p>
-                                    <p>${item.description}</p>
-                                </div>
-                                <button class="btn btn-sm col-span-1 ${item.status ? 'btn-success' : 'btn-disabled'} " onclick="${item.status ? 'window.open(\'ts3server://' + item.address + '\')' : '#'}" >连接</button>
-                            </div>
-                        </div>`).join("");
-        document.getElementById("server-data").innerHTML = html;
-      })
-      .catch(error => console.log(error));
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/cfga@1.0.3" async></script>
+</div>
+<script src="https://cdn.jsdelivr.net/gh/EdisonJwa/Blog@master/js/teamspeak.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/cfga@1.0.3" async></script>
 </body>
-
 </html>
