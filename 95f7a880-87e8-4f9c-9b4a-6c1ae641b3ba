@@ -6,12 +6,13 @@
     <link rel="preload" href="https://cdn.jsdelivr.net/gh/EdisonJwa/Blog@master/js/ts.min.js" as="script">
     <link rel="preload" href="https://cdn.jsdelivr.net/gh/EdisonJwa/Blog@master/css/ts.min.css" as="style" type="text/css">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
     <meta name="format-detection" content="telephone=no">
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <meta http-equiv="cache-control" content="no-cache"/>
     <meta http-equiv="pragma" content="no-cache"/>
     <meta http-equiv="expires" content="-1"/>
+    <meta name="description" content="Vigorous Pro TeamSpeak 语音服务器, Edison的语音服务器">
     <!--<meta http-equiv="refresh" content="3; url=ts3server://ts3.gs"> -->
     <link href="https://cdn.jsdelivr.net/gh/EdisonJwa/Blog@master/css/ts.min.css" rel="stylesheet">
 </head>
@@ -30,7 +31,7 @@
             </div>
             <div id="server-data" class="text-base-content">
                 <div class="text-center">
-                    <button aria-label="loading button" class="btn btn-ghost btn-lg btn-circle loading"></button>
+                    <button aria-hidden="true" class="btn btn-ghost btn-lg btn-circle loading"></button>
                 </div>
             </div>
             <div class="modal-action">
@@ -62,7 +63,7 @@
                     <div class="flex-0">
                         <div tabindex="0">
                             <div class="flex space-x-1">
-                                <button class="btn btn-ghost btn-square" aria-label="button component">
+                                <button class="btn btn-ghost btn-square" aria-label="button download">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-lg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                                     </svg>
@@ -78,7 +79,7 @@
                     <div class="flex-0">
                         <div tabindex="0">
                             <div class="flex space-x-1">
-                                <button class="btn btn-ghost btn-square" aria-label="button component">
+                                <button class="btn btn-ghost btn-square" aria-label="button plugin">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-lg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
                                     </svg>
@@ -95,7 +96,7 @@
                     <div class="flex-0">
                         <div tabindex="0">
                             <div class="flex space-x-1">
-                                <button class="btn btn-ghost btn-square" aria-label="button component">
+                                <button class="btn btn-ghost btn-square" aria-label="button donate">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-lg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                     </svg>
@@ -112,7 +113,7 @@
                     <div class="flex-0">
                         <div tabindex="0">
                             <div class="flex space-x-1">
-                                <button class="btn btn-ghost btn-square" aria-label="button component">
+                                <button class="btn btn-ghost btn-square" aria-label="button contact">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-lg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                     </svg>
@@ -130,7 +131,7 @@
                         <div class="dropdown dropdown-top dropdown-end">
                             <div tabindex="0">
                                 <div class="flex space-x-1">
-                                    <button class="btn btn-ghost btn-square">
+                                    <button class="btn btn-ghost btn-square" aria-hidden="true">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-2xl" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                                         </svg>
@@ -150,7 +151,7 @@
                         <div class="dropdown dropdown-top dropdown-end">
                             <div tabindex="0">
                                 <div class="flex space-x-1">
-                                    <button aria-label="button component" class="btn btn-ghost btn-square">
+                                    <button class="btn btn-ghost btn-square" aria-hidden="true">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-2xl" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0" />
                                         </svg>
