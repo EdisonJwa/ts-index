@@ -15,12 +15,22 @@
     <meta name="description" content="Vigorous Pro TeamSpeak 语音服务器, Edison的语音服务器">
     <!--<meta http-equiv="refresh" content="3; url=ts3server://ts3.gs"> -->
     <link href="/ts.min.css" rel="stylesheet">
-    <script>
-    var _mtm = window._mtm = window._mtm || [];
-    _mtm.push({'mtm.startTime': (new Date().getTime()), 'event': 'mtm.Start'});
+    <!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//data.hit.moe/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '2']);
     var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-    g.async=true; g.src='https://data.hit.moe/js/container_ctClhsnO.js'; s.parentNode.insertBefore(g,s);
-    </script>
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+
 </head>
 <body>
 <div class="hero h-screen bg-base-200">
